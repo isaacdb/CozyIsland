@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3suky0axfqhi"]
+
+[ext_resource type="Script" path="res://UI/Settings/KeyMapping/InputButtonMap/InputButtonMap.gd" id="1_r2hkq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_142mn"]
+bg_color = Color(0.6, 0.6, 0.6, 0.654902)
+
+[node name="InputButtonMap" type="Button"]
+custom_minimum_size = Vector2(0, 30)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_142mn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_142mn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_142mn")
+script = ExtResource("1_r2hkq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "Action test
+"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "Action test
+"
+vertical_alignment = 1

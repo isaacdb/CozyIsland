@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://6ld6ljhkdkw1"]
+
+[ext_resource type="Script" path="res://UI/Settings/Audio/AudioSlider/AudioSlider.gd" id="1_5qwma"]
+
+[node name="AudioSlider" type="HBoxContainer"]
+script = ExtResource("1_5qwma")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Geral"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 60.0

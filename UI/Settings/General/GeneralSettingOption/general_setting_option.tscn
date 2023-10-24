@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjvj3w2bh584e"]
+
+[ext_resource type="Script" path="res://UI/Settings/General/GeneralSettingOption/GeneralSettingOption.gd" id="1_iepvs"]
+
+[node name="GeneralSettingOption" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+script = ExtResource("1_iepvs")
+
+[node name="Spacer2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Toggle"
+
+[node name="SpacerToggleButton" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ToggleButton" type="CheckButton" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 0
+
+[node name="Slider" type="HSlider" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="Spacer3" type="Control" parent="."]
+layout_mode = 2
