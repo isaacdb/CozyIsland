@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bs43i246sw5i8"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/compose_item.gd" id="1_ikwk6"]
+[ext_resource type="Texture2D" uid="uid://ytid4047qasr" path="res://NewComponents/ComposeItem/3Prancha/prancha.png" id="1_q4f52"]
+[ext_resource type="Script" path="res://NewComponents/DropItem/drop_item.gd" id="2_3b5lm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdmy8"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghxpd"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p38ye"]
+size = Vector2(21.6338, 70.8085)
+
+[node name="3Prancha" type="Area2D"]
+position = Vector2(698, 395)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ikwk6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-148, 60)
+polygon = PackedVector2Array(70, -300, 208, -300, 220, 182, 74, 176)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_q4f52")
+
+[node name="DragItem2" type="Area2D" parent="."]
+position = Vector2(1.99999, -196)
+scale = Vector2(0.598399, 0.158633)
+script = ExtResource("2_3b5lm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem2"]
+scale = Vector2(7.14822, 7.38395)
+shape = SubResource("RectangleShape2D_kdmy8")
+
+[node name="DragItem3" type="Area2D" parent="."]
+position = Vector2(8, -16)
+scale = Vector2(0.581236, 0.188219)
+script = ExtResource("2_3b5lm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem3"]
+position = Vector2(-3.44094, 85.0074)
+scale = Vector2(7.13606, 5.4509)
+shape = SubResource("RectangleShape2D_ghxpd")
+
+[node name="DragItem4" type="Area2D" parent="."]
+position = Vector2(14, 188)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("2_3b5lm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem4"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_p38ye")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

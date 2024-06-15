@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsngsi1avlso6"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/place_item.gd" id="1_t8mv6"]
+[ext_resource type="Texture2D" uid="uid://ytid4047qasr" path="res://NewComponents/ComposeItem/3Prancha/prancha.png" id="2_6uuwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yavj4"]
+size = Vector2(128.5, 454)
+
+[node name="3PranchaPlace" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_t8mv6")
+item_name = "3Prancha/3_prancha_place"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.25, 9)
+shape = SubResource("RectangleShape2D_yavj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.999998)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_6uuwb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -80.0

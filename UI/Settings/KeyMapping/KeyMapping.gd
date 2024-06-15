@@ -10,12 +10,12 @@ var is_remmaping := false
 var action_to_remap : String
 var remmaping_button : InputButtonMap = null
 
+## C:\Users\isaac\AppData\Roaming\Godot\app_userdata\[Projeto]
 const PATH := "user://key_mapping.ini"
 const input_actions = {
-	"move_up": "Move up",
-	"move_down": "Move down",
-	"move_left": "Move left",
-	"move_right": "Move right",
+	"click": "Click",
+	"scroll_up": "Rotate up",
+	"scroll_down": "Rotate down",
 }
 
 var config_file: ConfigFile
@@ -31,7 +31,7 @@ func _ready() -> void:
 	pass
 	
 func _on_button_back_pressed():
-	print_debug("Button back press")
+	self.visible = false
 	pass
 	
 func _reset_mapping() -> void:

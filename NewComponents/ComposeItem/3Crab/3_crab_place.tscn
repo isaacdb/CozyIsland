@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://chb2pdo65i20u"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/place_item.gd" id="1_smtqf"]
+[ext_resource type="Texture2D" uid="uid://boqgspujtvnaa" path="res://NewComponents/ComposeItem/3Crab/crab1.png" id="2_foaw2"]
+
+[node name="3CrabPlace" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_smtqf")
+item_name = "3Crab/3_crab_place"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-112, -64)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_foaw2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -80.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-258, 84, -254, -62, -60, -64, -72, -246, 62, -250, 54, 78)

@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctx2us0j1f74v"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/compose_item.gd" id="1_hv3o2"]
+[ext_resource type="Texture2D" uid="uid://dsdbgnvaqmc8w" path="res://NewComponents/ComposeItem/4Turtle/turtle.png" id="2_2132k"]
+[ext_resource type="Script" path="res://NewComponents/DropItem/drop_item.gd" id="3_ef3s4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycyws"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uj51"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibyhk"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub2o1"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu88q"]
+size = Vector2(334, 342)
+
+[node name="4Turtle" type="Area2D"]
+position = Vector2(706, 296)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_hv3o2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-118, 106)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_2132k")
+
+[node name="DragItem2" type="Area2D" parent="."]
+position = Vector2(-212, 8)
+scale = Vector2(0.598399, 0.158633)
+script = ExtResource("3_ef3s4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem2"]
+scale = Vector2(7.14822, 7.38395)
+shape = SubResource("RectangleShape2D_ycyws")
+
+[node name="DragItem3" type="Area2D" parent="."]
+position = Vector2(-6, -2)
+scale = Vector2(0.581236, 0.188219)
+script = ExtResource("3_ef3s4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem3"]
+position = Vector2(-3.44094, 85.0074)
+scale = Vector2(7.13606, 5.4509)
+shape = SubResource("RectangleShape2D_8uj51")
+
+[node name="DragItem4" type="Area2D" parent="."]
+position = Vector2(-6, 198)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("3_ef3s4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem4"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_ibyhk")
+
+[node name="DragItem5" type="Area2D" parent="."]
+position = Vector2(-208, 212)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("3_ef3s4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem5"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_ub2o1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-123, 109)
+shape = SubResource("RectangleShape2D_cu88q")

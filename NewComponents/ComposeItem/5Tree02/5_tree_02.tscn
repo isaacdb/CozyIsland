@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp742k0s58b5q"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/compose_item.gd" id="1_0fxiw"]
+[ext_resource type="Texture2D" uid="uid://dgx00bqfoeg5f" path="res://NewComponents/ComposeItem/5Tree02/tree04.png" id="1_l06yj"]
+[ext_resource type="Script" path="res://NewComponents/DropItem/drop_item.gd" id="2_6hbg8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1mpf"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c40hi"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccyyi"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu1s3"]
+size = Vector2(21.6338, 70.8085)
+
+[node name="5Tree02" type="Area2D"]
+position = Vector2(502, 297)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_0fxiw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-148, 60)
+polygon = PackedVector2Array(80, 26, -126, 16, -118, -126, 412, -114, 404, 18, 220, 36, 222, 404, 86, 402)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 186)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_l06yj")
+
+[node name="DragItem2" type="Area2D" parent="."]
+position = Vector2(-194, -2)
+scale = Vector2(0.598399, 0.158633)
+script = ExtResource("2_6hbg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem2"]
+scale = Vector2(7.14822, 7.38395)
+shape = SubResource("RectangleShape2D_i1mpf")
+
+[node name="DragItem3" type="Area2D" parent="."]
+position = Vector2(8, -16)
+scale = Vector2(0.581236, 0.188219)
+script = ExtResource("2_6hbg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem3"]
+position = Vector2(-3.44094, 85.0074)
+scale = Vector2(7.13606, 5.4509)
+shape = SubResource("RectangleShape2D_c40hi")
+
+[node name="DragItem4" type="Area2D" parent="."]
+position = Vector2(14, 188)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("2_6hbg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem4"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_ccyyi")
+
+[node name="DragItem5" type="Area2D" parent="."]
+position = Vector2(8, 398)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("2_6hbg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem5"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_cu1s3")
+
+[node name="DragItem6" type="Area2D" parent="."]
+position = Vector2(208, 2)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("2_6hbg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem6"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_cu1s3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

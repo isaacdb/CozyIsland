@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://criwp6ngqp7sn"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/compose_item.gd" id="1_qg0mm"]
+[ext_resource type="Texture2D" uid="uid://boqgspujtvnaa" path="res://NewComponents/ComposeItem/3Crab/crab1.png" id="2_lb103"]
+[ext_resource type="Script" path="res://NewComponents/DropItem/drop_item.gd" id="3_3n57h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stnvo"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fta1p"]
+size = Vector2(21.6338, 70.8085)
+
+[node name="3Crab" type="Area2D"]
+position = Vector2(688, 490)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_qg0mm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-148, 60)
+polygon = PackedVector2Array(-86, 16, -88, -136, 86, -138, 82, -334, 236, -334, 234, 14)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-70, -68)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_lb103")
+
+[node name="DragItem2" type="Area2D" parent="."]
+position = Vector2(-178, 6)
+scale = Vector2(0.598399, 0.158633)
+script = ExtResource("3_3n57h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem2"]
+scale = Vector2(7.14822, 7.38395)
+shape = SubResource("RectangleShape2D_stnvo")
+
+[node name="DragItem3" type="Area2D" parent="."]
+position = Vector2(8, -16)
+scale = Vector2(0.581236, 0.188219)
+script = ExtResource("3_3n57h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem3"]
+position = Vector2(-3.44094, 85.0074)
+scale = Vector2(7.13606, 5.4509)
+shape = SubResource("RectangleShape2D_fta1p")
+
+[node name="DragItem4" type="Area2D" parent="."]
+position = Vector2(6, -212)
+scale = Vector2(0.581236, 0.188219)
+script = ExtResource("3_3n57h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem4"]
+position = Vector2(-3.44094, 85.0074)
+scale = Vector2(7.13606, 5.4509)
+shape = SubResource("RectangleShape2D_fta1p")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

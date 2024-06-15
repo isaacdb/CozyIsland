@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0afhb62llstk"]
+
+[ext_resource type="Script" path="res://NewComponents/DropSlot/drop_slot.gd" id="1_lix3g"]
+[ext_resource type="Texture2D" uid="uid://d18ppb2spwhnl" path="res://NewComponents/DropSlot/square8.png" id="2_qo7it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhdse"]
+size = Vector2(41, 44.5)
+
+[node name="DropSlot" type="StaticBody2D" groups=["dropable"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_lix3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_qo7it")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nhdse")

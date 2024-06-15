@@ -1,0 +1,179 @@
+[gd_scene load_steps=17 format=3 uid="uid://d04hcwux7liqk"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/safe_area.gd" id="1_2kfxx"]
+[ext_resource type="Texture2D" uid="uid://c2p6uai51hst" path="res://Map/sea.png" id="2_agvjd"]
+[ext_resource type="Texture2D" uid="uid://ddfdlapkpqy4h" path="res://Map/wave.png" id="3_jl83q"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/wave.gd" id="4_k8qrh"]
+[ext_resource type="Texture2D" uid="uid://bq7u37qneebit" path="res://Map/shape1.png" id="5_u2ysp"]
+[ext_resource type="PackedScene" uid="uid://b0afhb62llstk" path="res://NewComponents/DropSlot/drop_slot.tscn" id="6_vwaey"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/slot_manager.gd" id="7_k8nuw"]
+[ext_resource type="PackedScene" uid="uid://rsym1ygndspd" path="res://UI/canvas_layer.tscn" id="8_kfq0o"]
+[ext_resource type="PackedScene" uid="uid://ctx2us0j1f74v" path="res://NewComponents/ComposeItem/4Turtle/4_turtle.tscn" id="9_bydhj"]
+[ext_resource type="PackedScene" uid="uid://bieqhcmd0p4wk" path="res://NewComponents/ComposeItem/1Coconut/1_coconut.tscn" id="11_hg25n"]
+[ext_resource type="PackedScene" uid="uid://criwp6ngqp7sn" path="res://NewComponents/ComposeItem/3Crab/3_crab.tscn" id="12_fx80u"]
+[ext_resource type="Texture2D" uid="uid://gc4e8ak4itr" path="res://NewComponents/ComposeItem/5Tree01/tree01.png" id="13_n5f7g"]
+[ext_resource type="PackedScene" uid="uid://cv3nq22mo16k" path="res://NewComponents/ComposeItem/5Tree01/5_tree_01.tscn" id="14_81ooe"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/item_collect.gd" id="14_yx6j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbuoe"]
+size = Vector2(230, 433)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bywdl"]
+size = Vector2(154, 844)
+
+[node name="Level16" type="Node2D"]
+
+[node name="DroppableArea" type="Area2D" parent="." groups=["droppable_area"]]
+z_index = 3
+position = Vector2(58, -27)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DroppableArea"]
+polygon = PackedVector2Array(-326, 285, 195, 289, 197, -30, 105, -37, 96, -135, -121, -132, -125, -33, -218, -36, -224, 63, -325, 67)
+
+[node name="SafeArea" type="Area2D" parent="." groups=["SafeArea"]]
+z_index = 4
+position = Vector2(615, 17)
+script = ExtResource("1_2kfxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea"]
+position = Vector2(31, -37.5)
+shape = SubResource("RectangleShape2D_rbuoe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafeArea"]
+position = Vector2(-1354, -17)
+shape = SubResource("RectangleShape2D_bywdl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
+zoom = Vector2(0.6, 0.6)
+
+[node name="Sea" type="Sprite2D" parent="."]
+position = Vector2(9, 20)
+texture = ExtResource("2_agvjd")
+
+[node name="Waves" type="Node2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[node name="Wave" type="Sprite2D" parent="Waves"]
+position = Vector2(-2333.33, 426.667)
+texture = ExtResource("3_jl83q")
+script = ExtResource("4_k8qrh")
+
+[node name="Wave2" type="Sprite2D" parent="Waves"]
+position = Vector2(1293.33, -1216.67)
+texture = ExtResource("3_jl83q")
+script = ExtResource("4_k8qrh")
+
+[node name="Wave3" type="Sprite2D" parent="Waves"]
+position = Vector2(-1973.33, -863.333)
+texture = ExtResource("3_jl83q")
+script = ExtResource("4_k8qrh")
+
+[node name="Wave4" type="Sprite2D" parent="Waves"]
+position = Vector2(-1076.67, 1130)
+texture = ExtResource("3_jl83q")
+script = ExtResource("4_k8qrh")
+
+[node name="Wave5" type="Sprite2D" parent="Waves"]
+position = Vector2(240, 1500)
+texture = ExtResource("3_jl83q")
+script = ExtResource("4_k8qrh")
+
+[node name="Wave6" type="Sprite2D" parent="Waves"]
+position = Vector2(2596.67, 1060)
+texture = ExtResource("3_jl83q")
+script = ExtResource("4_k8qrh")
+
+[node name="Wave7" type="Sprite2D" parent="Waves"]
+position = Vector2(2390, 230)
+texture = ExtResource("3_jl83q")
+script = ExtResource("4_k8qrh")
+
+[node name="Shape1" type="Sprite2D" parent="."]
+position = Vector2(-8, -255)
+rotation = 3.14159
+scale = Vector2(0.4, 0.35)
+texture = ExtResource("5_u2ysp")
+
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="DragSlot11" parent="Slots" instance=ExtResource("6_vwaey")]
+
+[node name="DragSlot14" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(0, 100)
+
+[node name="DragSlot16" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(100, 100)
+
+[node name="DragSlot17" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(0, 200)
+
+[node name="DragSlot12" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(100, 0)
+
+[node name="DragSlot18" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(0, -100)
+
+[node name="DragSlot20" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(100, -100)
+
+[node name="DragSlot19" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(100, 200)
+
+[node name="DragSlot13" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(200, 0)
+
+[node name="DragSlot21" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(200, 200)
+
+[node name="DragSlot25" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(200, 100)
+
+[node name="DragSlot22" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(-200, 100)
+
+[node name="DragSlot27" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(-200, 200)
+
+[node name="DragSlot15" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(-100, 0)
+
+[node name="DragSlot29" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(-100, 100)
+
+[node name="DragSlot30" parent="Slots" instance=ExtResource("6_vwaey")]
+position = Vector2(-100, 200)
+
+[node name="SlotManager" type="Node2D" parent="."]
+script = ExtResource("7_k8nuw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SlotManager"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("8_kfq0o")]
+next_scene = "level_17"
+current_level = "16"
+
+[node name="4Turtle" parent="." instance=ExtResource("9_bydhj")]
+position = Vector2(418, -203)
+
+[node name="1Coconut" parent="." instance=ExtResource("11_hg25n")]
+position = Vector2(535, 366)
+
+[node name="5Tree01" parent="." instance=ExtResource("14_81ooe")]
+position = Vector2(-409, 115)
+rotation = 1.5708
+
+[node name="3Crab" parent="." instance=ExtResource("12_fx80u")]
+position = Vector2(-248, 369)
+rotation = 4.71239
+
+[node name="3Crab2" parent="." instance=ExtResource("12_fx80u")]
+position = Vector2(113, 457)
+rotation = 1.5708
+
+[node name="NewItem" type="Sprite2D" parent="."]
+position = Vector2(7, 819)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_n5f7g")
+script = ExtResource("14_yx6j3")
+item_name = "5Tree01"

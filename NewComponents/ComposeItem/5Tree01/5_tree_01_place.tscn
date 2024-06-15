@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dogxrjupahngp"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/place_item.gd" id="1_ljdvp"]
+[ext_resource type="Texture2D" uid="uid://gc4e8ak4itr" path="res://NewComponents/ComposeItem/5Tree01/tree01.png" id="2_577f0"]
+
+[node name="5Tree01Place" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ljdvp")
+item_name = "5Tree01/5_tree_01_place"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-194, 130)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_577f0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -80.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-100, 374, -58, 70, -392, 60, -460, -100, 94, -126, 44, 384)

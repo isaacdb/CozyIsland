@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://r2vosq7ralyx"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/compose_item.gd" id="1_fpnvy"]
+[ext_resource type="Texture2D" uid="uid://i8p56bqcbvj0" path="res://NewComponents/ComposeItem/2Tree/tree02.png" id="2_8b7ne"]
+[ext_resource type="Script" path="res://NewComponents/DropItem/drop_item.gd" id="3_r4elo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0blmn"]
+size = Vector2(164, 358)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr2b0"]
+size = Vector2(21.6338, 70.8085)
+
+[node name="2Tree" type="Area2D"]
+position = Vector2(600, 401)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_fpnvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 104)
+shape = SubResource("RectangleShape2D_0blmn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 104)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_8b7ne")
+
+[node name="DragItem4" type="Area2D" parent="."]
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("3_r4elo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem4"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_vr2b0")
+
+[node name="DragItem5" type="Area2D" parent="."]
+position = Vector2(0, 194)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("3_r4elo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem5"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_vr2b0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -80.0

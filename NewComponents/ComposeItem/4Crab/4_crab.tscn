@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4tdsoxfyc2ok"]
+
+[ext_resource type="Script" path="res://NewComponents/ComposeItem/compose_item.gd" id="1_nccs4"]
+[ext_resource type="Texture2D" uid="uid://dtogn2qjhrtar" path="res://NewComponents/ComposeItem/4Crab/crab2.png" id="2_um3ik"]
+[ext_resource type="Script" path="res://NewComponents/DropItem/drop_item.gd" id="3_ha4ry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jibnk"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlvp5"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwijr"]
+size = Vector2(21.6338, 70.8085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1yyy"]
+size = Vector2(21.6338, 70.8085)
+
+[node name="4Crab" type="Area2D"]
+position = Vector2(502, 394)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_nccs4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(50, -120)
+polygon = PackedVector2Array(-322, 210, -314, 50, 56, 46, 56, -142, 218, -144, 214, 210)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.00002, -82)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_um3ik")
+
+[node name="DragItem2" type="Area2D" parent="."]
+position = Vector2(-198, 8)
+scale = Vector2(0.598399, 0.158633)
+script = ExtResource("3_ha4ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem2"]
+scale = Vector2(7.14822, 7.38395)
+shape = SubResource("RectangleShape2D_jibnk")
+
+[node name="DragItem3" type="Area2D" parent="."]
+position = Vector2(2, -4)
+scale = Vector2(0.581236, 0.188219)
+script = ExtResource("3_ha4ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem3"]
+position = Vector2(-3.44094, 85.0074)
+scale = Vector2(7.13606, 5.4509)
+shape = SubResource("RectangleShape2D_wlvp5")
+
+[node name="DragItem4" type="Area2D" parent="."]
+position = Vector2(200, 10)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("3_ha4ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem4"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_dwijr")
+
+[node name="DragItem5" type="Area2D" parent="."]
+position = Vector2(196, -192)
+scale = Vector2(0.643496, 0.198308)
+script = ExtResource("3_ha4ry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragItem5"]
+position = Vector2(-12.4321, 10.0853)
+scale = Vector2(-6.03299, 4.95644)
+shape = SubResource("RectangleShape2D_k1yyy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

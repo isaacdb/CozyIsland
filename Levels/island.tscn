@@ -1,0 +1,338 @@
+[gd_scene load_steps=33 format=3 uid="uid://dq3lsahygivc3"]
+
+[ext_resource type="Texture2D" uid="uid://c2p6uai51hst" path="res://Map/sea.png" id="1_5cimi"]
+[ext_resource type="Script" path="res://Levels/Island/island.gd" id="1_noeio"]
+[ext_resource type="Texture2D" uid="uid://wt5gwqfb2hmh" path="res://Map/shape_final.png" id="2_hoy47"]
+[ext_resource type="Texture2D" uid="uid://ddfdlapkpqy4h" path="res://Map/wave.png" id="3_gy71i"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/wave.gd" id="4_2xcib"]
+[ext_resource type="Texture2D" uid="uid://dgx00bqfoeg5f" path="res://NewComponents/ComposeItem/5Tree02/tree04.png" id="5_wqp2k"]
+[ext_resource type="Texture2D" uid="uid://gc4e8ak4itr" path="res://NewComponents/ComposeItem/5Tree01/tree01.png" id="6_k0fm4"]
+[ext_resource type="Texture2D" uid="uid://i8p56bqcbvj0" path="res://NewComponents/ComposeItem/2Tree/tree02.png" id="7_hhd63"]
+[ext_resource type="Texture2D" uid="uid://dfm88cgjjac2k" path="res://NewComponents/ComposeItem/1Coconut/coconut.png" id="8_a6y0s"]
+[ext_resource type="Texture2D" uid="uid://dkjh2j2qxtqjw" path="res://NewComponents/ComposeItem/1Star/star.png" id="9_3o0gp"]
+[ext_resource type="PackedScene" uid="uid://c8u5k808qowge" path="res://Levels/Island/button_place.tscn" id="9_y4uxy"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/hover_control.gd" id="10_dy10q"]
+[ext_resource type="PackedScene" uid="uid://cxo6heygywh7x" path="res://NewComponents/ComposeItem/1Coconut/1_coconut_place.tscn" id="10_ms5a5"]
+[ext_resource type="PackedScene" uid="uid://d0cu0c52lg5bj" path="res://NewComponents/ComposeItem/1Star/1_star_place.tscn" id="12_6qg2l"]
+[ext_resource type="Script" path="res://UI/Settings/Audio/AudioSlider/audio_slider.gd" id="15_vcgki"]
+[ext_resource type="Theme" uid="uid://dv3w4syw7lh2d" path="res://new_theme.tres" id="16_gy3je"]
+[ext_resource type="PackedScene" uid="uid://chb2pdo65i20u" path="res://NewComponents/ComposeItem/3Crab/3_crab_place.tscn" id="17_4vpcn"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/transition_points.gdshader" id="17_63emf"]
+[ext_resource type="Texture2D" uid="uid://boqgspujtvnaa" path="res://NewComponents/ComposeItem/3Crab/crab1.png" id="17_nw58b"]
+[ext_resource type="Texture2D" uid="uid://ytid4047qasr" path="res://NewComponents/ComposeItem/3Prancha/prancha.png" id="18_4mpje"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/fade_shader.gd" id="18_07nni"]
+[ext_resource type="Texture2D" uid="uid://dtogn2qjhrtar" path="res://NewComponents/ComposeItem/4Crab/crab2.png" id="19_6wese"]
+[ext_resource type="PackedScene" uid="uid://bsngsi1avlso6" path="res://NewComponents/ComposeItem/3Prancha/3_prancha_place.tscn" id="19_drcdq"]
+[ext_resource type="Texture2D" uid="uid://dsdbgnvaqmc8w" path="res://NewComponents/ComposeItem/4Turtle/turtle.png" id="20_pjnqf"]
+[ext_resource type="PackedScene" uid="uid://bqhnf1war6ume" path="res://NewComponents/ComposeItem/4Crab/4_crab_place.tscn" id="21_dfuqe"]
+[ext_resource type="PackedScene" uid="uid://dy0ekb1w6c2ky" path="res://NewComponents/ComposeItem/4Turtle/4_turtle_place.tscn" id="23_n73c3"]
+[ext_resource type="PackedScene" uid="uid://6ku6wmdqpjny" path="res://NewComponents/ComposeItem/2Tree/2_tree_place.tscn" id="23_rbd08"]
+[ext_resource type="Texture2D" uid="uid://y0m7h52v2km7" path="res://icon.svg" id="24_sxh0e"]
+[ext_resource type="PackedScene" uid="uid://dogxrjupahngp" path="res://NewComponents/ComposeItem/5Tree01/5_tree_01_place.tscn" id="25_c8dhl"]
+[ext_resource type="PackedScene" uid="uid://bcwk2ecwr37id" path="res://NewComponents/ComposeItem/5Tree02/5_tree_02_place.tscn" id="27_akhtm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4h1wg"]
+resource_local_to_scene = true
+shader = ExtResource("17_63emf")
+shader_parameter/in_color = Color(1, 0.847059, 0.380392, 1)
+shader_parameter/out_color = Color(1, 0.847059, 0.380392, 1)
+shader_parameter/in_out = 0.0
+shader_parameter/position = -1.5
+shader_parameter/size = Vector2(36, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cd80"]
+size = Vector2(122, 123)
+
+[node name="Island" type="Node2D"]
+script = ExtResource("1_noeio")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 328)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Sea" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(532, 245)
+texture = ExtResource("1_5cimi")
+
+[node name="ShapeFinal" type="Sprite2D" parent="."]
+position = Vector2(577, 494)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hoy47")
+
+[node name="Waves" type="Node2D" parent="."]
+z_index = -5
+scale = Vector2(0.3, 0.3)
+
+[node name="Wave" type="Sprite2D" parent="Waves"]
+position = Vector2(46.6667, 363.333)
+texture = ExtResource("3_gy71i")
+script = ExtResource("4_2xcib")
+
+[node name="Wave2" type="Sprite2D" parent="Waves"]
+position = Vector2(136.667, 2193.33)
+texture = ExtResource("3_gy71i")
+script = ExtResource("4_2xcib")
+
+[node name="Wave3" type="Sprite2D" parent="Waves"]
+position = Vector2(1790, 40)
+texture = ExtResource("3_gy71i")
+script = ExtResource("4_2xcib")
+
+[node name="Wave4" type="Sprite2D" parent="Waves"]
+position = Vector2(3373.33, -156.667)
+texture = ExtResource("3_gy71i")
+script = ExtResource("4_2xcib")
+
+[node name="Wave5" type="Sprite2D" parent="Waves"]
+position = Vector2(2320, 2170)
+texture = ExtResource("3_gy71i")
+script = ExtResource("4_2xcib")
+
+[node name="Wave6" type="Sprite2D" parent="Waves"]
+position = Vector2(3766.67, 1526.67)
+texture = ExtResource("3_gy71i")
+script = ExtResource("4_2xcib")
+
+[node name="Wave7" type="Sprite2D" parent="Waves"]
+position = Vector2(4026.67, 2150)
+texture = ExtResource("3_gy71i")
+script = ExtResource("4_2xcib")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MusicSlider" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -159.0
+offset_top = 26.0
+offset_right = 25.0
+offset_bottom = 276.0
+grow_horizontal = 0
+mouse_filter = 1
+script = ExtResource("15_vcgki")
+
+[node name="Settings" type="Button" parent="CanvasLayer/MusicSlider"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 148.0
+offset_bottom = 56.0
+mouse_filter = 1
+script = ExtResource("10_dy10q")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/MusicSlider/Settings"]
+
+[node name="Label" type="Label" parent="CanvasLayer/MusicSlider/Settings"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 19.0
+offset_right = 175.0
+offset_bottom = 38.0
+mouse_filter = 1
+theme = ExtResource("16_gy3je")
+text = "Settings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MusicSlider"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 50.0
+offset_right = 467.0
+offset_bottom = 132.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MusicSlider/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MusicSlider/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MusicSlider/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("16_gy3je")
+text = "Music"
+
+[node name="SliderMusic" type="HSlider" parent="CanvasLayer/MusicSlider/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MusicSlider/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MusicSlider/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MusicSlider/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("16_gy3je")
+text = "Sound effects"
+
+[node name="SliderSound" type="HSlider" parent="CanvasLayer/MusicSlider/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 54.0
+offset_bottom = 173.0
+
+[node name="2Tree" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("7_hhd63")
+item = ExtResource("23_rbd08")
+item_texture = ExtResource("7_hhd63")
+item_name = "2Tree"
+
+[node name="1Coconut" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+item = ExtResource("10_ms5a5")
+item_texture = ExtResource("8_a6y0s")
+item_name = "1Coconut"
+
+[node name="3Prancha" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("18_4mpje")
+item = ExtResource("19_drcdq")
+item_texture = ExtResource("18_4mpje")
+item_name = "3Prancha"
+
+[node name="1Star" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("9_3o0gp")
+item = ExtResource("12_6qg2l")
+item_texture = ExtResource("9_3o0gp")
+item_name = "1Star"
+
+[node name="3Crab" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("17_nw58b")
+item = ExtResource("17_4vpcn")
+item_texture = ExtResource("17_nw58b")
+item_name = "3Crab"
+
+[node name="4Turtle" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("20_pjnqf")
+item = ExtResource("23_n73c3")
+item_texture = ExtResource("20_pjnqf")
+item_name = "4Turtle"
+
+[node name="4Crab" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("19_6wese")
+item = ExtResource("21_dfuqe")
+item_texture = ExtResource("19_6wese")
+item_name = "4Crab"
+
+[node name="5Tree01" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("6_k0fm4")
+item = ExtResource("25_c8dhl")
+item_texture = ExtResource("6_k0fm4")
+item_name = "5Tree01"
+
+[node name="5Tree02" parent="CanvasLayer/VBoxContainer" instance=ExtResource("9_y4uxy")]
+layout_mode = 2
+texture = ExtResource("5_wqp2k")
+item = ExtResource("27_akhtm")
+item_texture = ExtResource("5_wqp2k")
+item_name = "5Tree02"
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -78.0
+offset_right = 139.0
+offset_bottom = -33.0
+grow_vertical = 0
+theme = ExtResource("16_gy3je")
+text = "Restart"
+script = ExtResource("10_dy10q")
+
+[node name="Label" type="Label" parent="CanvasLayer/BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("16_gy3je")
+text = "Back"
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/BackButton"]
+
+[node name="FadeShader" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_4h1wg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("18_07nni")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -653.0
+offset_top = -41.0
+offset_right = -486.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("16_gy3je")
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "Ctrl + Scroll to scale
+Right click to move backward"
+
+[node name="Thrash" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -78.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("16_gy3je")
+text = "Thrash"
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 178.0
+offset_top = 81.0
+offset_right = 1035.0
+offset_bottom = 151.0
+theme = ExtResource("16_gy3je")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 60
+text = "Cozy island"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Thrash" type="Area2D" parent="." groups=["Thrash"]]
+position = Vector2(1166, 639)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thrash"]
+position = Vector2(34, 7)
+shape = SubResource("RectangleShape2D_6cd80")
+
+[node name="Sprite2D" type="Sprite2D" parent="Thrash"]
+visible = false
+texture = ExtResource("24_sxh0e")
+
+[node name="Parent" type="Node2D" parent="." groups=["Items"]]

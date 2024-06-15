@@ -1,0 +1,262 @@
+[gd_scene load_steps=12 format=3 uid="uid://rsym1ygndspd"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/level_completed.gd" id="1_04x6p"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/play_music.gd" id="2_liteq"]
+[ext_resource type="Texture2D" uid="uid://hgcl736k6pib" path="res://Map/sun_circle.png" id="3_64qjy"]
+[ext_resource type="Texture2D" uid="uid://cal83lpauhns0" path="res://Map/rays.png" id="4_c2pws"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/spinning_sun.gd" id="5_yx774"]
+[ext_resource type="Script" path="res://UI/Settings/Audio/AudioSlider/audio_slider.gd" id="6_0qdct"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/hover_control.gd" id="6_dbr8w"]
+[ext_resource type="Theme" uid="uid://dv3w4syw7lh2d" path="res://new_theme.tres" id="7_nlf8k"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/transition_points.gdshader" id="8_snpme"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/fade_shader.gd" id="9_uoost"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bvuy"]
+resource_local_to_scene = true
+shader = ExtResource("8_snpme")
+shader_parameter/in_color = Color(1, 0.847059, 0.380392, 1)
+shader_parameter/out_color = Color(1, 0.847059, 0.380392, 1)
+shader_parameter/in_out = 0.0
+shader_parameter/position = -1.5
+shader_parameter/size = Vector2(36, 24)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_04x6p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_liteq")
+
+[node name="ButtonNext" type="Button" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.5
+offset_right = 95.5
+offset_bottom = 187.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(90, 90)
+text = "Next"
+script = ExtResource("6_dbr8w")
+
+[node name="TextureRect" type="TextureRect" parent="Control/ButtonNext"]
+layout_mode = 0
+offset_right = 604.0
+offset_bottom = 608.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_64qjy")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ButtonNext/TextureRect"]
+z_index = -1
+layout_mode = 0
+offset_left = -121.787
+offset_top = -121.08
+offset_right = 732.213
+offset_bottom = 728.92
+rotation = -6.28319
+pivot_offset = Vector2(427, 425)
+texture = ExtResource("4_c2pws")
+script = ExtResource("5_yx774")
+
+[node name="Label" type="Label" parent="Control/ButtonNext/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("7_nlf8k")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 180
+text = "^ ^"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/ButtonNext/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 610.417
+offset_top = 145.833
+offset_right = 610.417
+offset_bottom = 145.833
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.57279
+mouse_filter = 1
+theme = ExtResource("7_nlf8k")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 180
+text = ")"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/ButtonNext"]
+
+[node name="MusicSlider" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -159.0
+offset_top = 26.0
+offset_right = 25.0
+offset_bottom = 276.0
+grow_horizontal = 0
+mouse_filter = 1
+script = ExtResource("6_0qdct")
+
+[node name="Settings" type="Button" parent="Control/MusicSlider"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 148.0
+offset_bottom = 56.0
+mouse_filter = 1
+script = ExtResource("6_dbr8w")
+
+[node name="Label" type="Label" parent="Control/MusicSlider/Settings"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 19.0
+offset_right = 175.0
+offset_bottom = 38.0
+mouse_filter = 1
+theme = ExtResource("7_nlf8k")
+text = "Settings"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/MusicSlider/Settings"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MusicSlider"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 50.0
+offset_right = 467.0
+offset_bottom = 132.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MusicSlider/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MusicSlider/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MusicSlider/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_nlf8k")
+text = "Music"
+
+[node name="SliderMusic" type="HSlider" parent="Control/MusicSlider/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/MusicSlider/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MusicSlider/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MusicSlider/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_nlf8k")
+text = "Sound effects"
+
+[node name="SliderSound" type="HSlider" parent="Control/MusicSlider/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ButtonRestart" type="Button" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -78.0
+offset_right = -53.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("7_nlf8k")
+text = "Restart"
+script = ExtResource("6_dbr8w")
+
+[node name="Label" type="Label" parent="Control/ButtonRestart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("7_nlf8k")
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/ButtonRestart"]
+
+[node name="ButtonHome" type="Button" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -536.0
+offset_top = -78.0
+offset_right = -437.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_nlf8k")
+text = "Restart"
+script = ExtResource("6_dbr8w")
+
+[node name="Label" type="Label" parent="Control/ButtonHome"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("7_nlf8k")
+text = "Home"
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/ButtonHome"]
+
+[node name="Level" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 88.0
+offset_bottom = 83.0
+theme = ExtResource("7_nlf8k")
+text = "1/20"
+
+[node name="FadeShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6bvuy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("9_uoost")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8u5k808qowge"]
+
+[ext_resource type="Texture2D" uid="uid://dfm88cgjjac2k" path="res://NewComponents/ComposeItem/1Coconut/coconut.png" id="1_o5ccq"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/button_place.gd" id="2_51bjr"]
+
+[node name="Coconut" type="TextureRect"]
+texture = ExtResource("1_o5ccq")
+expand_mode = 4
+stretch_mode = 5
+script = ExtResource("2_51bjr")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
