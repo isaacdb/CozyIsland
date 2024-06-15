@@ -9,6 +9,7 @@ Controls:
 - Scroll or right click to rotate when dragging
 
 Game made in 7 days for the CougarCup Jam - #2024 Tropical Summer
+Made with Godot v4.2.2
 
 Credits:
 - Font by @Kaph
