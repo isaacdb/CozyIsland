@@ -8,12 +8,11 @@ extends TextureRect
 
 func _ready():
 	texture = item_texture
-	var avaiable = true
+	var avaiable = Global.list_itens_avaiable.any(func(i): return i == item_name)
 	if avaiable:
 		button.pressed.connect(on_pressed)
 	else:
 		modulate = Color.BLACK
-		
 	pass
 
 func on_pressed():

@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var button_restart = $Control/ButtonRestart as Button
 @onready var level = $Control/Level as Label
 @onready var button_home = $Control/ButtonHome as Button
+@onready var button_rotate = $Control/ButtonRotate as Button
 
 var _levels_path := "res://Levels/"
 
@@ -17,6 +18,10 @@ func _ready():
 	button_restart.pressed.connect(on_restart)
 	button_home.pressed.connect(on_home_pressed)
 	level.text = current_level + "/20"
+	
+	button_rotate.pressed.connect(func(): Global.rotate_mobile.emit())
+	button_rotate.visible = false
+	#Global.control_change.connect(func(): button_rotate.visible = GeneralSettingsManager.mobile)
 	pass
 
 func completed() -> void:

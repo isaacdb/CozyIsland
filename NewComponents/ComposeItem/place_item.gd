@@ -96,8 +96,15 @@ func check_release_click() -> void:
 	if not _is_dragging:
 		return
 	
-	if (_position_click - get_global_mouse_position()).length() < 10:
-		return
+	if GeneralSettingsManager.mobile:
+		_is_dragging = false
+		if (_position_click - get_global_mouse_position()).length() < 10:
+			rotate_aux("up")
+		pass
+	else:
+		if (_position_click - get_global_mouse_position()).length() < 10:
+			return
+		pass
 		
 	drop_item()
 	pass

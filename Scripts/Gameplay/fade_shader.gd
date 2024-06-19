@@ -18,7 +18,6 @@ func fade_in():
 	
 func fade_out():
 	visible = true
-	#rotation_degrees = 180
 	var tween = create_tween()
 	tween.tween_property(material, "shader_parameter/position", -1.5, 2)
 	tween.play()

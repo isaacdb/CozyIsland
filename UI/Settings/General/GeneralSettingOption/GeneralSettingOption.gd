@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 
-@export var prop_name : GeneralSettingsManager.PropName = GeneralSettingsManager.PropName.CAMERA_SHAKE
+@export var prop_name : GeneralSettingsManager.PropName = GeneralSettingsManager.PropName.MOBILE
 @export var prop_type : GeneralSettingsManager.PropType = GeneralSettingsManager.PropType.TOGGLE
 @export var label_name : String = "Default"
 
@@ -26,6 +26,7 @@ func _setup_visibility_by_type() -> void:
 	label.text = label_name;
 	spacer_toggle_button.visible = prop_type == GeneralSettingsManager.PropType.TOGGLE;
 	toggle_button.visible = prop_type == GeneralSettingsManager.PropType.TOGGLE;
+	toggle_button.button_pressed = false
 	slider.visible = prop_type == GeneralSettingsManager.PropType.SLIDER;
 	pass
 	

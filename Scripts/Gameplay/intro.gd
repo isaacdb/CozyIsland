@@ -38,7 +38,10 @@ func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("space") and _can_skip:
+	if not _can_skip:
+		return
+
+	if Input.is_action_just_pressed("space") or Input.is_action_just_pressed("click"):
 		_switch_scene()
 	pass
 		

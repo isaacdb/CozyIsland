@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjvj3w2bh584e"]
+[gd_scene load_steps=3 format=3 uid="uid://cjvj3w2bh584e"]
 
 [ext_resource type="Script" path="res://UI/Settings/General/GeneralSettingOption/GeneralSettingOption.gd" id="1_iepvs"]
+[ext_resource type="Theme" uid="uid://dv3w4syw7lh2d" path="res://new_theme.tres" id="2_jap2n"]
 
 [node name="GeneralSettingOption" type="HBoxContainer"]
 anchors_preset = 10
@@ -15,6 +16,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("2_jap2n")
 text = "Toggle"
 
 [node name="SpacerToggleButton" type="Control" parent="."]

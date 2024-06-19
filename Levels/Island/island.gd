@@ -1,15 +1,31 @@
 extends Node2D
 class_name Island
+
 @onready var back_button = $CanvasLayer/BackButton as Button
+@onready var button_info = $CanvasLayer/ButtonInfo as Button
+@onready var info = $CanvasLayer/Info as Label
 
 var _save : SaveIsland
 var _parent_itens : Node2D
+var _info_on := false
 
 func _ready():
 	back_button.pressed.connect(on_back_press)
+	button_info.pressed.connect(on_info_press)
 	_parent_itens = get_tree().get_first_node_in_group('Items')
 	load_island()
 	pass
+	
+func on_info_press() -> void:
+	_info_on = !_info_on
+	var tween = get_tree().create_tween()
+	if _info_on:
+		tween.tween_property(info, "position:y", 90, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	else:
+		tween.tween_property(info, "position:y", -200, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.play()
+	pass
+	
 
 func load_island():
 	if SaveIsland.save_exists():

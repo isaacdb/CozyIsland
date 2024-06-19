@@ -239,6 +239,7 @@ script = ExtResource("5_t8lme")
 intensity = 2.0
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
