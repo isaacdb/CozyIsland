@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj0j3ilpqibep"]
+[gd_scene load_steps=14 format=3 uid="uid://cj0j3ilpqibep"]
 
 [ext_resource type="PackedScene" uid="uid://b0afhb62llstk" path="res://NewComponents/DropSlot/drop_slot.tscn" id="1_oxeij"]
 [ext_resource type="Texture2D" uid="uid://c2p6uai51hst" path="res://Map/sea.png" id="1_ua84k"]
@@ -8,18 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://r2vosq7ralyx" path="res://NewComponents/ComposeItem/2Tree/2_tree.tscn" id="4_km2i1"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/slot_manager.gd" id="7_lcdr6"]
 [ext_resource type="PackedScene" uid="uid://rsym1ygndspd" path="res://UI/canvas_layer.tscn" id="11_actjg"]
-[ext_resource type="Script" path="res://Scripts/Gameplay/safe_area.gd" id="12_uk21e"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/tip_controller.gd" id="12_x2qpk"]
 [ext_resource type="Texture2D" uid="uid://i8p56bqcbvj0" path="res://NewComponents/ComposeItem/2Tree/tree02.png" id="13_detfn"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/item_collect.gd" id="14_w6xw4"]
 [ext_resource type="Theme" uid="uid://dv3w4syw7lh2d" path="res://new_theme.tres" id="19_tcyph"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/tween_float.gd" id="20_dg8mg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukt5h"]
-size = Vector2(84, 85)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyynt"]
-size = Vector2(62, 96)
 
 [node name="Level01" type="Node2D"]
 
@@ -29,19 +22,6 @@ position = Vector2(58, -27)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DroppableArea"]
 polygon = PackedVector2Array(-123, 142, 7, 140, 2, -83, -116, -81)
-
-[node name="SafeArea" type="Area2D" parent="." groups=["SafeArea"]]
-z_index = 4
-position = Vector2(615, 17)
-script = ExtResource("12_uk21e")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea"]
-position = Vector2(-42, -4.5)
-shape = SubResource("RectangleShape2D_ukt5h")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafeArea"]
-position = Vector2(-1120, -11)
-shape = SubResource("RectangleShape2D_yyynt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 2
@@ -107,7 +87,7 @@ script = ExtResource("7_lcdr6")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SlotManager"]
 
 [node name="2Item01" parent="." instance=ExtResource("4_km2i1")]
-position = Vector2(341, -49)
+position = Vector2(573, -54)
 rotate_on_start = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_actjg")]

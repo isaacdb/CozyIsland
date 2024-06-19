@@ -25,7 +25,7 @@ var _rotation_aux := 0
 var _mouse_smoth := false
 var _position_click : Vector2
 var _level_completed := false
-var _safe_area : SafeArea
+var _initial_pos : Vector2
 
 func _ready():
 	for child in get_children():
@@ -34,7 +34,7 @@ func _ready():
 			
 	Global.level_complete.connect(func(): _level_completed = true)
 	
-	_safe_area = get_tree().get_first_node_in_group('SafeArea') as SafeArea
+	_initial_pos = global_position
 	
 	_original_scale = sprite_2d.scale
 	_scale_hover = sprite_2d.scale * 1.1
@@ -45,11 +45,10 @@ func _ready():
 	
 	audio_stream.volume_db = 0
 	audio_stream.bus = "Sound"
-	move_to_start_rand_pos()
+	rand_rotate()
 	pass
 
-func move_to_start_rand_pos():
-	move_to_safe_area()
+func rand_rotate():
 	if rotate_on_start:
 		_rotation_aux = randi_range(0, 4)
 		rotate_aux("up")
@@ -166,7 +165,7 @@ func rotate_aux(scroll: String):
 func move_to_safe_area():
 	play_sound(_drop_wrong_clip)
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "global_position", _safe_area.get_rand_position(), 0.5)\
+	tween.tween_property(self, "global_position", _initial_pos, 0.5)\
 	.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
 	pass
 

@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://cg6dnnluj8sk0"]
+[gd_scene load_steps=14 format=3 uid="uid://cg6dnnluj8sk0"]
 
-[ext_resource type="Script" path="res://Scripts/Gameplay/safe_area.gd" id="1_q8h4s"]
 [ext_resource type="Texture2D" uid="uid://c2p6uai51hst" path="res://Map/sea.png" id="2_t27ax"]
 [ext_resource type="Texture2D" uid="uid://ddfdlapkpqy4h" path="res://Map/wave.png" id="3_xbo1d"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/wave.gd" id="4_ypfea"]
@@ -15,12 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://dkjh2j2qxtqjw" path="res://NewComponents/ComposeItem/1Star/star.png" id="13_eig5v"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/item_collect.gd" id="14_ortyt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayd6o"]
-size = Vector2(230, 433)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhenc"]
-size = Vector2(154, 844)
-
 [node name="Level08" type="Node2D"]
 
 [node name="DroppableArea" type="Area2D" parent="." groups=["droppable_area"]]
@@ -29,19 +22,6 @@ position = Vector2(58, -27)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DroppableArea"]
 polygon = PackedVector2Array(-268, 178, 157, 179, 148, -37, -40, -36, -56, -232, -166, -235, -175, -37, -264, -39)
-
-[node name="SafeArea" type="Area2D" parent="." groups=["SafeArea"]]
-z_index = 4
-position = Vector2(615, 17)
-script = ExtResource("1_q8h4s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea"]
-position = Vector2(31, -37.5)
-shape = SubResource("RectangleShape2D_ayd6o")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafeArea"]
-position = Vector2(-1354, -17)
-shape = SubResource("RectangleShape2D_uhenc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 2
@@ -136,20 +116,20 @@ next_scene = "level_09"
 current_level = "08"
 
 [node name="2Tree" parent="." instance=ExtResource("9_km7tq")]
-position = Vector2(260, 163)
+position = Vector2(-654, -39)
 
 [node name="1Coconut" parent="." instance=ExtResource("10_kjovw")]
-position = Vector2(533, 162)
+position = Vector2(669, -4)
 
 [node name="3Prancha" parent="." instance=ExtResource("11_86w76")]
-position = Vector2(449, 91)
+position = Vector2(527, -93)
 
 [node name="3Prancha2" parent="." instance=ExtResource("11_86w76")]
-position = Vector2(451, 260)
+position = Vector2(-561, 186)
 rotation = 1.5708
 
 [node name="1Star" parent="." instance=ExtResource("12_ml2ab")]
-position = Vector2(361, 162)
+position = Vector2(-489, -102)
 
 [node name="NewItem" type="Sprite2D" parent="."]
 position = Vector2(7, 819)

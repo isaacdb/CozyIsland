@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=3 uid="uid://bv51sq0koxpvj"]
+[gd_scene load_steps=17 format=3 uid="uid://bv51sq0koxpvj"]
 
-[ext_resource type="Script" path="res://Scripts/Gameplay/safe_area.gd" id="1_or86n"]
 [ext_resource type="Texture2D" uid="uid://c2p6uai51hst" path="res://Map/sea.png" id="2_sxlmu"]
 [ext_resource type="Texture2D" uid="uid://ddfdlapkpqy4h" path="res://Map/wave.png" id="3_ftnto"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/wave.gd" id="4_u1fn7"]
@@ -18,12 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://blvnt2rmgebpd" path="res://NewComponents/ComposeItem/1Star/1_star.tscn" id="16_skulk"]
 [ext_resource type="PackedScene" uid="uid://bieqhcmd0p4wk" path="res://NewComponents/ComposeItem/1Coconut/1_coconut.tscn" id="17_bimrp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueuk8"]
-size = Vector2(94, 244)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6mif"]
-size = Vector2(154, 844)
-
 [node name="Level20" type="Node2D"]
 
 [node name="DroppableArea" type="Area2D" parent="." groups=["droppable_area"]]
@@ -32,19 +25,6 @@ position = Vector2(58, -27)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DroppableArea"]
 polygon = PackedVector2Array(-420, 290, -344, 286, -328, 398, -205, 398, -189, 295, 300, 283, 303, -29, 202, -38, 204, -240, -418, -237)
-
-[node name="SafeArea" type="Area2D" parent="." groups=["SafeArea"]]
-z_index = 4
-position = Vector2(615, 17)
-script = ExtResource("1_or86n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea"]
-position = Vector2(170, -19)
-shape = SubResource("RectangleShape2D_ueuk8")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafeArea"]
-position = Vector2(-1354, -17)
-shape = SubResource("RectangleShape2D_x6mif")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 2
@@ -193,32 +173,32 @@ next_scene = "final"
 current_level = "20"
 
 [node name="2Tree" parent="." instance=ExtResource("9_2mad5")]
-position = Vector2(-544, -72)
+position = Vector2(-538, -144)
 
 [node name="4Crab" parent="." instance=ExtResource("10_wgjbe")]
-position = Vector2(-811, -65)
+position = Vector2(430, -285)
 rotation = 3.14159
 
 [node name="5Tree02" parent="." instance=ExtResource("11_q8d6a")]
-position = Vector2(-737, 109)
+position = Vector2(637, -81)
 rotation = 4.71239
 
 [node name="4Turtle" parent="." instance=ExtResource("12_03o18")]
-position = Vector2(-809, 110)
+position = Vector2(580, 232)
 
 [node name="5Tree01" parent="." instance=ExtResource("13_st7s7")]
-position = Vector2(-469, 314)
+position = Vector2(-537, 317)
 rotation = 1.5708
 
 [node name="3Crab" parent="." instance=ExtResource("14_ahl3r")]
-position = Vector2(-911, 308)
+position = Vector2(-412, -344)
 rotation = 3.14159
 
 [node name="3Prancha" parent="." instance=ExtResource("15_tkdco")]
-position = Vector2(-1002, 8)
+position = Vector2(159, 400)
 
 [node name="1Star" parent="." instance=ExtResource("16_skulk")]
-position = Vector2(-1013, 304)
+position = Vector2(-119, -375)
 
 [node name="1Coconut" parent="." instance=ExtResource("17_bimrp")]
-position = Vector2(-558, 203)
+position = Vector2(-153, 425)
