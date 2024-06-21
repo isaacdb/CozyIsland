@@ -41,6 +41,8 @@ func load_island():
 		_save.list_avaiable_itens = Global.list_itens_avaiable
 	else:
 		Global.list_itens_avaiable = _save.list_avaiable_itens
+		
+	Global.load_complete.emit()
 	pass
 
 func save_island():

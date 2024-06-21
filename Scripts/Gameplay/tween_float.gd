@@ -1,6 +1,6 @@
 extends Control
 
-@export var intensity := 10.0
+@export var intensity := 5.0
 
 var _start_pos : Vector2
 

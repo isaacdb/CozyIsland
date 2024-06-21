@@ -5,6 +5,8 @@ signal level_complete
 signal switch_level
 signal rotate_mobile
 signal control_change
+signal load_complete
+
 
 var is_dragging := false
 var current_scene : String = "res://Levels/level_01.tscn"

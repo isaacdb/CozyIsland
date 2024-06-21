@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj0j3ilpqibep"]
+[gd_scene load_steps=15 format=3 uid="uid://cj0j3ilpqibep"]
 
 [ext_resource type="PackedScene" uid="uid://b0afhb62llstk" path="res://NewComponents/DropSlot/drop_slot.tscn" id="1_oxeij"]
 [ext_resource type="Texture2D" uid="uid://c2p6uai51hst" path="res://Map/sea.png" id="1_ua84k"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://rsym1ygndspd" path="res://UI/canvas_layer.tscn" id="11_actjg"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/tip_controller.gd" id="12_x2qpk"]
 [ext_resource type="Texture2D" uid="uid://i8p56bqcbvj0" path="res://NewComponents/ComposeItem/2Tree/tree02.png" id="13_detfn"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/arrow_indicator.gd" id="14_7j02d"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/item_collect.gd" id="14_w6xw4"]
 [ext_resource type="Theme" uid="uid://dv3w4syw7lh2d" path="res://new_theme.tres" id="19_tcyph"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/tween_float.gd" id="20_dg8mg"]
@@ -104,25 +105,41 @@ item_name = "2Tree"
 [node name="TipController" type="Node2D" parent="."]
 script = ExtResource("12_x2qpk")
 
+[node name="Position2Arrow" type="Marker2D" parent="TipController"]
+position = Vector2(-51, -142)
+
 [node name="Tip" type="Label" parent="TipController"]
-offset_left = -147.0
+offset_left = -187.0
 offset_top = 155.0
-offset_right = 149.0
+offset_right = 190.0
 offset_bottom = 206.0
 theme = ExtResource("19_tcyph")
 theme_override_font_sizes/font_size = 20
 text = "Tap or hold to drag
-Fill all the squares"
+complete all the squares"
 script = ExtResource("20_dg8mg")
+
+[node name="Arrow" type="Label" parent="TipController" node_paths=PackedStringArray("position_2")]
+offset_left = 677.0
+offset_top = -73.0
+offset_right = 1054.0
+offset_bottom = -3.0
+theme = ExtResource("19_tcyph")
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 80
+text = "<--"
+script = ExtResource("14_7j02d")
+position_2 = NodePath("../Position2Arrow")
+intensity = 20.0
 
 [node name="TipMobile" type="Label" parent="TipController"]
 visible = false
-offset_left = -147.0
+offset_left = -185.0
 offset_top = 155.0
-offset_right = 149.0
+offset_right = 192.0
 offset_bottom = 206.0
 theme = ExtResource("19_tcyph")
 theme_override_font_sizes/font_size = 20
 text = "Tap and hold to drag
-Fill all the squares"
+Complete all the squares"
 script = ExtResource("20_dg8mg")
